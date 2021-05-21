@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using ToDoAPI.Model;
+using Microsoft.OpenApi.Models;
 
 namespace ToDoAPI
 {
@@ -22,10 +23,10 @@ namespace ToDoAPI
         {
             services.AddDbContext<ToDoContext>(opt => opt.UseInMemoryDatabase("ToDoList"));
             services.AddControllers();
-            /*services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ToDoAPI", Version = "v1" });
-            });*/
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,8 +35,8 @@ namespace ToDoAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //app.UseSwagger();
-                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ToDoAPI v1"));
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ToDoAPI v1"));
             }
             app.UseDefaultFiles();
             app.UseStaticFiles();

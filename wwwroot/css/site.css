@@ -2,26 +2,22 @@
     cursor: pointer;
 }
 
-#
-editForm {
+#editForm {
     display: none;
 }
 
-t
-able {
+table {
     font-family: Arial, sans-serif;
     border: 1px solid;
     border-collapse: collapse;
 }
 
-t
-h {
+th {
     background-color: #f8f8f8;
     padding: 5px;
 }
 
-t
-d {
+td {
     border: 1px solid;
     padding: 5px;
 }
